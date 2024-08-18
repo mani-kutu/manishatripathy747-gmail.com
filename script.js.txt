@@ -5,41 +5,43 @@ let draws = 0;
 function play(userChoice) {
     const choices = ['rock', 'paper', 'scissors'];
     const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+    
+    document.getElementById('user-choice').innerText = userChoice;
+    document.getElementById('computer-choice').innerText = computerChoice;
+    
     let result = '';
 
     if (userChoice === computerChoice) {
-        result = 'It\'s a draw!';
+        result = `It's a draw! Both chose ${userChoice}.`;
         draws++;
     } else if (
         (userChoice === 'rock' && computerChoice === 'scissors') ||
-        (userChoice === 'scissors' && computerChoice === 'paper') ||
-        (userChoice === 'paper' && computerChoice === 'rock')
+        (userChoice === 'paper' && computerChoice === 'rock') ||
+        (userChoice === 'scissors' && computerChoice === 'paper')
     ) {
-        result = 'You win!';
+        result = `You win! ${userChoice} beats ${computerChoice}.`;
         wins++;
     } else {
-        result = 'Computer wins!';
+        result = `You lose! ${computerChoice} beats ${userChoice}.`;
         losses++;
     }
-
-    document.getElementById('userChoice').textContent = `Your choice: ${userChoice}`;
-    document.getElementById('computerChoice').textContent = `Computer's choice: ${computerChoice}`;
-    document.getElementById('outcome').textContent = `Result: ${result}`;
+    
+    document.getElementById('result-text').innerText = result;
     updateScoreboard();
 }
 
 function updateScoreboard() {
-    document.getElementById('wins').textContent = `Wins: ${wins}`;
-    document.getElementById('losses').textContent = `Losses: ${losses}`;
-    document.getElementById('draws').textContent = `Draws: ${draws}`;
+    document.getElementById('wins').innerText = wins;
+    document.getElementById('losses').innerText = losses;
+    document.getElementById('draws').innerText = draws;
 }
 
 function resetGame() {
+    document.getElementById('user-choice').innerText = 'None';
+    document.getElementById('computer-choice').innerText = 'None';
+    document.getElementById('result-text').innerText = 'Make your move!';
     wins = 0;
     losses = 0;
     draws = 0;
-    document.getElementById('userChoice').textContent = 'Your choice: ';
-    document.getElementById('computerChoice').textContent = 'Computer\'s choice: ';
-    document.getElementById('outcome').textContent = 'Result: ';
     updateScoreboard();
 }

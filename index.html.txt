@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors Game</title>
+    <title>Rock, Paper, Scissors Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h1>Rock, Paper, Scissors</h1>
         <div class="buttons">
-            <button onclick="play('rock')">Rock</button>
-            <button onclick="play('paper')">Paper</button>
-            <button onclick="play('scissors')">Scissors</button>
+            <button class="btn" onclick="play('rock')">Rock</button>
+            <button class="btn" onclick="play('paper')">Paper</button>
+            <button class="btn" onclick="play('scissors')">Scissors</button>
         </div>
-        <div id="result">
-            <p id="userChoice">Your choice: </p>
-            <p id="computerChoice">Computer's choice: </p>
-            <p id="outcome">Result: </p>
+        <div class="game-info">
+            <p><strong>Your Choice:</strong> <span id="user-choice">None</span></p>
+            <p><strong>Computer's Choice:</strong> <span id="computer-choice">None</span></p>
+            <p><strong>Result:</strong> <span id="result-text">Make your move!</span></p>
         </div>
-        <div id="scoreboard">
-            <p id="wins">Wins: 0</p>
-            <p id="losses">Losses: 0</p>
-            <p id="draws">Draws: 0</p>
+        <div class="scoreboard">
+            <p><strong>Wins:</strong> <span id="wins">0</span></p>
+            <p><strong>Losses:</strong> <span id="losses">0</span></p>
+            <p><strong>Draws:</strong> <span id="draws">0</span></p>
         </div>
-        <button id="reset" onclick="resetGame()">Reset Game</button>
+        <button class="btn reset-btn" onclick="resetGame()">Reset Game</button>
     </div>
     <script src="script.js"></script>
 </body>
